@@ -1,1 +1,49 @@
-hello world
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปฏิทิน Google ที่ฝัง</title>
+    <!-- โหลด Tailwind CSS สำหรับการจัดสไตล์ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* ตั้งค่าฟอนต์หลักและใช้คลาส Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* กำหนดขนาดของ iframe ให้ยืดหยุ่นภายใน container และเพิ่มสไตล์ความสวยงาม */
+        .calendar-container iframe {
+            width: 100%;
+            height: 70vh; /* ใช้ 70% ของความสูงหน้าจอ เพื่อให้ดูดีบนอุปกรณ์ต่างๆ */
+            border-radius: 0.75rem; /* มุมโค้งมนสวยงาม */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* เงาเด่นชัด */
+            /* ลบขอบเขตของ iframe ออกเนื่องจากเรากำหนด border: 0 ใน style attribute แล้ว */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- ส่วนหัวข้อของหน้า -->
+    <header class="mb-6 text-center">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">ปฏิทินกิจกรรม</h1>
+        <p class="text-base text-gray-500">ดูตารางงานและกิจกรรมล่าสุดได้ที่นี่</p>
+    </header>
+
+    <!-- คอนเทนเนอร์สำหรับปฏิทิน - จำกัดความกว้างสูงสุดเพื่อให้ดูดีบนหน้าจอขนาดใหญ่ -->
+    <div class="calendar-container w-full max-w-5xl bg-white p-2 rounded-xl shadow-xl">
+        <!-- โค้ด iframe สำหรับฝัง Google Calendar -->
+        <iframe
+            src="https://calendar.google.com/calendar/embed?src=homework.pblacct%40gmail.com&ctz=Asia%2FBangkok"
+            style="border: 0"
+            frameborder="0"
+            scrolling="no">
+        </iframe>
+    </div>
+
+    <!-- ข้อความหมายเหตุท้ายหน้า -->
+    <footer class="mt-6 text-xs text-gray-400 text-center">
+        <p>&copy; Embedded content from Google Calendar</p>
+    </footer>
+
+</body>
+</html>
